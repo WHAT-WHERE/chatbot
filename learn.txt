@@ -1,0 +1,28 @@
+
+USER (en): hai
+BOT: Please specify how many tickets you would like to book.
+--------------------
+USER (en): tum
+BOT: AAp?
+--------------------
+USER (en): 4 book
+BOT: Booked 4 ticket(s) successfully at 2024-09-14 18:08:27 for a total amount of 400.
+--------------------
+USER (en): 4 book
+BOT: Booked 4 ticket(s) successfully at 2024-09-14 18:08:27 for a total amount of 400.
+--------------------
+USER (en): tum
+BOT: I'm sorry, I didn't understand that.
+--------------------
+USER (en): tum
+BOT: I'm sorry, I didn't understand that.
+--------------------
+USER (en): change to hindi
+BOT: I'm sorry, I didn't understand that.
+--------------------
+USER (en): book tickets
+BOT: Please specify how many tickets you would like to book.
+--------------------
+USER (en): 6 tickets
+BOT: Booked 6 ticket(s) successfully at 2024-10-24 16:12:36 for a total amount of 600.
+--------------------

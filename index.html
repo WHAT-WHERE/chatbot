@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Ticket Booking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container to cover the entire page */
+        html, body {
+            background-color: white;
+            height: 100%;
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Keeps image fixed while scrolling */
+            transition: background-image 1s ease-in-out;
+        }
+
+        .chatbot-box {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .chatbot-box h1 {
+            color: aquamarine;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .chat-log {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #000000;
+            padding: 10px;
+            background-color: #000000;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+        }
+
+        .chat-log p {
+            margin: 5px 0;
+        }
+
+        .chat-log .user {
+            font-weight: bold;
+        }
+
+        .chat-log .bot {
+            color: aquamarine;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: aquamarine;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 30%;
+            padding: 10px;
+            background-color: aquamarine;
+            border: none;
+            margin-top: 10px;
+            border-radius: 6px;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-box">
+        <h1>Ticket Booking Chatbot</h1>
+        <div class="chat-log" id="chat-log">
+            <p class="bot">Chatbot: Please select a language (e.g., Hindi, Bengali, Tamil):</p>
+        </div>
+        <form id="chat-form" method="post" action="">
+            <input type="text" id="user-input" placeholder="Type your message here..." required>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+
+    <script>
+        const chatLog = document.getElementById("chat-log");
+        const chatForm = document.getElementById("chat-form");
+        const userInput = document.getElementById("user-input");
+
+        // Background images array with proper URLs
+        const backgroundImages = [
+            'url("https://t3.ftcdn.net/jpg/02/65/64/24/240_F_265642486_IXw9DQVzjTfAzT8xMtTBXBvYD8Who6Fw.jpg")',
+            'url("https://t3.ftcdn.net/jpg/03/22/52/98/240_F_322529875_xskoq6Pg8vzxnDR3FNigstBWZAC2g14U.jpg")',
+            'url("https://t3.ftcdn.net/jpg/04/53/31/70/240_F_453317039_vgYyunvq6lALcAzte0pkE5Hz5gRGsPJr.jpg")',
+            'url("https://static.toiimg.com/thumb/msid-92089121,width-748,height-499,resizemode=4,imgsize-139308/.jpg")',
+            'url("https://assets-news.housing.com/news/wp-content/uploads/2022/09/07113524/15-beautiful-places-in-India-for-tourists-to-visit-15.jpg")',
+            'url("https://hblimg.mmtcdn.com/content/hubble/img/leh/mmt/destination/m_leh-landscape_l_400_640.jpg")',
+            'url("https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-cola-beach-goa.jpg")',
+            'url("https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-tea-plantations.jpg")',
+            'url("https://www.planetware.com/wpimages/2020/01/india-in-pictures-beautiful-places-to-photograph-bandra-worli-sea-link-mumbai.jpg")'
+        ];
+        
+        let currentImageIndex = 0;
+
+        // Function to change background image
+        function changeBackgroundImage() {
+            document.body.style.backgroundImage = backgroundImages[currentImageIndex];
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        }
+
+        // Start the background image rotation
+        setInterval(changeBackgroundImage, 5000); // Change every 5 seconds
+
+        chatForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const userMessage = userInput.value.trim();
+            if (userMessage === "") return;
+
+            // Append user message to chat log
+            appendMessage("user", userMessage);
+
+            // Send the message to the chatbot backend
+            fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botResponse = data.reply;
+                appendMessage("bot", botResponse);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+
+            // Clear input field after sending
+            userInput.value = "";
+        });
+
+        function appendMessage(sender, message) {
+            const messageElement = document.createElement("p");
+            messageElement.classList.add(sender);
+            messageElement.textContent = sender === "user" ? `You: ${message}` : `Chatbot: ${message}`;
+            chatLog.appendChild(messageElement);
+            chatLog.scrollTop = chatLog.scrollHeight; // Scroll to the bottom
+        }
+
+        // Set initial background image
+        changeBackgroundImage();
+        // For sending feedback
+        function sendFeedback(userInput, feedback) {
+    fetch('/feedback', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_input: userInput,
+            feedback: feedback
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.reply); // Display the response from the server
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+    </script>
+</body>
+</html>

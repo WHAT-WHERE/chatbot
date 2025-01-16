@@ -1,0 +1,120 @@
+Ticket Count: 4
+Booking Time: 2024-09-14 18:08:27
+Ticket Amount: 400
+--------------------
+Ticket Count: 6
+Booking Time: 2024-10-24 16:12:36
+Ticket Amount: 600
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 05:19:59.679734
+Ticket Amount: 1000
+--------------------
+Ticket Count: 2
+Booking Time: 2024-10-25 05:20:45.924556
+Ticket Amount: 200
+--------------------
+Ticket Count: 3
+Booking Time: 2024-10-25 05:24:14.845868
+Ticket Amount: 600
+--------------------
+Ticket Count: 2
+Booking Time: 2024-10-25 05:36:10.131773
+Ticket Amount: 400
+--------------------
+Ticket Count: 4
+Booking Time: 2024-10-25 05:41:23.126035
+Ticket Amount: 800
+--------------------
+Ticket Count: 2
+Booking Time: 2024-10-25 05:45:13.238591
+Ticket Amount: 400
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 05:48:37.996107
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 05:51:30.421613
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 05:53:09.114290
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 05:59:40.146113
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 06:51:28.103471
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 09:49:24.359110
+Ticket Amount: 1000
+--------------------
+Ticket Count: 2
+Booking Time: 2024-10-25 11:17:29.139820
+Ticket Amount: 400
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 13:27:19.750566
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 15:37:18.128923
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-10-25 15:42:31.296538
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-11-13 09:04:58.224830
+Ticket Amount: 1000
+--------------------
+Ticket Count: 6
+Booking Time: 2024-11-13 09:12:16.566178
+Ticket Amount: 1200
+--------------------
+Ticket Count: 5
+Booking Time: 2024-11-13 09:29:51.478814
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-11-13 09:53:09.710155
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2024-11-14 00:45:13.103169
+Ticket Amount: 1000
+--------------------
+Ticket Count: 1
+Booking Time: 2024-11-14 00:48:50.842636
+Ticket Amount: 100
+--------------------
+Ticket Count: 2
+Booking Time: 2024-11-14 15:28:21.526243
+Ticket Amount: 400
+--------------------
+Ticket Count: 2
+Booking Time: 2024-11-21 11:12:18.666539
+Ticket Amount: 400
+--------------------
+Ticket Count: 2
+Booking Time: 2024-11-21 11:20:18.006194
+Ticket Amount: 400
+--------------------
+Ticket Count: 2
+Booking Time: 2024-11-21 11:21:16.078547
+Ticket Amount: 400
+--------------------
+Ticket Count: 5
+Booking Time: 2024-11-21 11:35:33.047632
+Ticket Amount: 1000
+--------------------
+Ticket Count: 5
+Booking Time: 2025-01-16 14:05:57.649170
+Ticket Amount: 1000
+--------------------
